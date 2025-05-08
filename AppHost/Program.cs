@@ -12,6 +12,7 @@ builder.AddProject<Projects.DbMigrations>("dbmigrations")
 
 builder.AddProject<Projects.Client>("client")
        .WaitFor(postgresdb)
-       .WithReference(server);
+       .WithReference(server)
+       .WithExternalHttpEndpoints();
 
 builder.Build().Run();
